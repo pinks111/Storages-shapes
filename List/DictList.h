@@ -1,5 +1,5 @@
-#include "Dictionaries/ABC.h"
-#include "Containers/list.h"
+#include "ABC.h"
+#include "list.h"
 #include <stdexcept>
 
 template<typename key, typename value>
