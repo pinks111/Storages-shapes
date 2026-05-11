@@ -1,6 +1,8 @@
 #ifndef _BINTREE_26_
 #define _BINTREE_26_
 
+#include <cstddef>
+
 template <typename T>
 class BinTree{
 	struct Node {
