@@ -48,6 +48,22 @@ class BinTree{
 	size_t count;
 public:
 	BinTree() : root(nullptr), count(0) {}
+	BinTree(const BinTree&) = delete;
+	BinTree& operator=(const BinTree&) = delete;
+	BinTree(BinTree&& other) noexcept : root(other.root), count(other.count) {
+		other.root = nullptr;
+		other.count = 0;
+	}
+	BinTree& operator=(BinTree&& other) noexcept {
+		if (this != &other) {
+			empty();
+			root = other.root;
+			count = other.count;
+			other.root = nullptr;
+			other.count = 0;
+		}
+		return *this;
+	}
 	~BinTree() { empty(); }
 	void empty() { delete root; root = nullptr; count = 0; }
 	void insert(const T& x);
