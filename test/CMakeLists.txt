@@ -6,6 +6,9 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(googletest)
 
 add_executable(storages_shapes_tests test.cc)
-target_link_libraries(storages_shapes_tests PRIVATE storages_shapes GTest::gtest_main)
+target_include_directories(storages_shapes_tests PRIVATE
+    ${CMAKE_SOURCE_DIR}
+)
+target_link_libraries(storages_shapes_tests PRIVATE GTest::gtest_main)
 
 add_test(NAME storages_shapes_tests COMMAND storages_shapes_tests)
