@@ -11,11 +11,10 @@ public:
 	value operator[](const key&) {
     DictPara<key, value> search(k, value{});
     auto found = tree_.find(search);
-    if (found != tree_.end()) {
-      return (*it).get_value();
+    if (found == tree_.end()) {
+		throw std::invalid_argument("Key not found");
     }
-    tree.insert_(search);
-    return value{};
+	return (*it).get_value();
   }
 
 	void insert(const key& k, const value& v) {
@@ -25,4 +24,3 @@ public:
 private:
 	BinTree<DictPara<key, value>> data_;
 };
-
