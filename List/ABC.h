@@ -1,5 +1,5 @@
 #pragma once
-#include "Dictionaries/DictPara.h"
+#include "../DictPara.h"
 
 
 template < typename key, typename value >

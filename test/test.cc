@@ -4,7 +4,10 @@
 #include <gtest/gtest.h>
 
 #include "Array/Array.h"
+#include "Array/DictArray.h"
 #include "BinTree/BinTree.h"
+#include "BinTree/DictBin.h"
+#include "List/DictList.h"
 #include "List/list.h"
 #include "Storage/Storage.h"
 
@@ -76,4 +79,43 @@ TEST(StorageTest, AddedItemsArePresent) {
     EXPECT_EQ(files.getItem(0), "first.txt");
     EXPECT_EQ(files.getItem(1), "second.txt");
     EXPECT_EQ(files.getItem(2), "third.txt");
+}
+
+TEST(ArrayDictTest, FindsInsertedValuesAndUpdatesExistingKeys) {
+    ArrayDict<std::string, int> pages;
+
+    pages.insert("intro", 1);
+    pages.insert("chapter", 10);
+    pages.insert("chapter", 12);
+
+    EXPECT_EQ(pages["intro"], 1);
+    EXPECT_EQ(pages["chapter"], 12);
+    EXPECT_THROW(pages["missing"], std::out_of_range);
+}
+
+TEST(ListDictTest, FindsInsertedValuesAndUpdatesExistingKeys) {
+    ListDict<std::string, int> pages;
+
+    pages.insert("intro", 1);
+    pages.insert("chapter", 10);
+    pages.insert("chapter", 12);
+
+    EXPECT_EQ(pages["intro"], 1);
+    EXPECT_EQ(pages["chapter"], 12);
+    EXPECT_THROW(pages["missing"], std::out_of_range);
+}
+
+TEST(BinTreeDictTest, FindsInsertedValuesAndUpdatesExistingKeys) {
+    Dict<std::string, int> pages;
+
+    pages.insert("intro", 1);
+    pages.insert("chapter", 10);
+    pages.insert("chapter", 12);
+
+    EXPECT_TRUE(pages.contains("intro"));
+    EXPECT_TRUE(pages.contains("chapter"));
+    EXPECT_FALSE(pages.contains("missing"));
+    EXPECT_EQ(pages["intro"], 1);
+    EXPECT_EQ(pages["chapter"], 12);
+    EXPECT_THROW(pages["missing"], std::out_of_range);
 }

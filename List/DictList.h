@@ -8,16 +8,22 @@ class ListDict: public ABCDict<key, value> {
 public:
     ListDict() {};
 
-    value operator[](const key& k) {
+    value operator[](const key& k) override {
         for (auto i = list_.begin(); i != list_.end(); ++i) {
-            if (i->word_ == k) {
-                return i->translate_;
+            if ((*i).get_key() == k) {
+                return (*i).get_value();
             }
         }
-        throw std::invalid_argument("Key not found");
+        throw std::out_of_range("Key not found in Dict");
     }
 
-	void insert(const key& k, const value& v) {
-        list_.push_back(DictPara(k, v));
+	void insert(const key& k, const value& v) override {
+        for (auto i = list_.begin(); i != list_.end(); ++i) {
+            if ((*i).get_key() == k) {
+                *i = DictPara<key, value>(k, v);
+                return;
+            }
+        }
+        list_.push_back(DictPara<key, value>(k, v));
     }
 };
