@@ -12,7 +12,7 @@ public:
     DictPara<key, value> search(k, value{});
     auto found = tree_.find(search);
     if (found == tree_.end()) {
-		throw std::invalid_argument("Key not found");
+		throw std::out_of_range("Key not found");
     }
 	return (*it).get_value();
   }

@@ -29,7 +29,7 @@ value ArrayDict<key, value>::operator[](const key& searchKey) {
 			return (*it).get_value();
 		}
 	}
-	throw std::out_of_range("Key not found in Dict");
+	throw std::out_of_range("Key not found");
 }
 
 template < typename key, typename value >

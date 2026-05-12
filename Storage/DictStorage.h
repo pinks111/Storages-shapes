@@ -1,0 +1,24 @@
+#pragma once
+
+#include <Storage.h>
+#include <DictPara.h>
+
+#include <stdexcept>
+
+template <typename key, typename value>
+class Dict {
+public:
+    Dict() = default;
+
+    value operator[](const key& k) {
+      for (size_t i = 0; i < storage_.getSize(); ++i) {
+        if (storage_.getItem(i).get_key() == k) {
+          return storage_.getItem(i).get_value();
+        }
+      }
+      throw std::out_of_range("DictStorage: key not found");  
+    }
+    void insert(const key& k, const value& v) {
+      storage_.addItem(DictPara<key, value>(k, v));
+    }
+}
