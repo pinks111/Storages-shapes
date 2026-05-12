@@ -1,7 +1,7 @@
 #pragma once
 #include "BinTree/BinTree.h"
 #include "DictPara.h"
-
+#include <stdexcept>
 
 template < typename key, typename value >
 class DictBin {
@@ -18,7 +18,7 @@ public:
   }
 
 	void insert(const key& k, const value& v) {
-    data_.insert_(DictPara<key, value>(k, v));
+    data_.insert(DictPara<key, value>(k, v));
   }
 
 private:
