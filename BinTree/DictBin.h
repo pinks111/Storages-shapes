@@ -4,9 +4,9 @@
 
 
 template < typename key, typename value >
-class Dict {
+class DictBin {
 public:
-	Dict() = default;
+	DictBin() = default;
   
 	value operator[](const key&) {
     DictPara<key, value> search(k, value{});

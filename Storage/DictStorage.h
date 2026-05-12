@@ -6,9 +6,9 @@
 #include <stdexcept>
 
 template <typename key, typename value>
-class Dict {
+class DictStorage {
 public:
-    Dict() = default;
+    DictStorage() = default;
 
     value operator[](const key& k) {
       for (size_t i = 0; i < storage_.getSize(); ++i) {
@@ -16,7 +16,7 @@ public:
           return storage_.getItem(i).get_value();
         }
       }
-      throw std::out_of_range("DictStorage: key not found");  
+      throw std::out_of_range("Key not found");  
     }
     void insert(const key& k, const value& v) {
       storage_.addItem(DictPara<key, value>(k, v));

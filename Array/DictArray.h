@@ -6,9 +6,9 @@
 
 
 template < typename key, typename value >
-class ArrayDict: public ABCDict<key, value> {
+class DictArray: public ABCDict<key, value> {
 public:
-	ArrayDict() = default;
+	DictArray() = default;
 
 	// Обращение по ключу
 	value operator[](const key&) override;
@@ -21,7 +21,7 @@ private:
 };
 
 template < typename key, typename value >
-value ArrayDict<key, value>::operator[](const key& searchKey) {
+value DictArray<key, value>::operator[](const key& searchKey) {
 	for (typename Array< DictPara<key, value> >::iterator it = data_.begin();
 		 it != data_.end();
 		 ++it) {
@@ -33,7 +33,7 @@ value ArrayDict<key, value>::operator[](const key& searchKey) {
 }
 
 template < typename key, typename value >
-void ArrayDict<key, value>::insert(const key& newKey, const value& newValue) {
+void DictArray<key, value>::insert(const key& newKey, const value& newValue) {
 	for (typename Array< DictPara<key, value> >::iterator it = data_.begin();
 		 it != data_.end();
 		 ++it) {

@@ -6,9 +6,9 @@
 #include <stdexcept>
 
 template <typename key, typename value>
-class Dict {
+class DictAVL {
 public:
-    Dict() = default;
+    DictAVL() = default;
 
     value operator[](const key& k) {
         DictPara<key, value> searchKey(k, value{});
