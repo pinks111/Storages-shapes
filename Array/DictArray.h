@@ -2,7 +2,7 @@
 #include <stdexcept>
 
 #include "Array.h"
-#include "Dictionaries/ABC.h"
+#include "ABC.h"
 
 
 template < typename key, typename value >
