@@ -2,6 +2,7 @@
 #include <stdexcept>
 
 #include "Array.h"
+#include "DictPara.h"
 
 
 template < typename key, typename value >
