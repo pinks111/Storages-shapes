@@ -1,6 +1,6 @@
 #pragma once
 
-#include <AVLTree.h>
+#include <BinTree/AVLTree.h>
 #include "DictPara.h"
 
 #include <stdexcept>

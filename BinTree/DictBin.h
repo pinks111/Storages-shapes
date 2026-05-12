@@ -1,5 +1,5 @@
 #pragma once
-#include "BinTree.h"
+#include "BinTree/BinTree.h"
 #include "DictPara.h"
 
 

@@ -1,7 +1,7 @@
 #pragma once
 #include <stdexcept>
 
-#include "Array.h"
+#include "Array/Array.h"
 #include "ABC.h"
 
 

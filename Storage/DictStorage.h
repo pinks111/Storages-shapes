@@ -1,6 +1,6 @@
 #pragma once
 
-#include <Storage.h>
+#include <Storage/Storage.h>
 #include <DictPara.h>
 
 #include <stdexcept>
