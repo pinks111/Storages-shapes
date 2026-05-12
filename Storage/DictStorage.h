@@ -21,4 +21,6 @@ public:
     void insert(const key& k, const value& v) {
       storage_.addItem(DictPara<key, value>(k, v));
     }
-}
+private:
+    Storage<DictPara<key, value>> storage_;
+};

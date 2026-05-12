@@ -148,7 +148,7 @@ TEST(DictArrayTest, KeyNotFoundThrows) {
     EXPECT_THROW(dict[999], std::out_of_range);
 }
 
-EST(DictListTest, InsertAndAccess) {
+TEST(DictListTest, InsertAndAccess) {
     DictList<std::string, int> dict;
     dict.insert("x", 5);
     dict.insert("y", 15);
